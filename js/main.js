@@ -11,7 +11,7 @@ function renderFilms(array) {
   // clearing inner the elList
   elList.innerHTML = "";
   
-  movies.forEach(function(item) {
+  array.forEach(function(item) {
     // making and giving class to maked elements
     const liElement = document.createElement("li");
     liElement.classList.add("item");
@@ -73,8 +73,6 @@ function renderFilms(array) {
 function rotater() {
   
   const cards = document.getElementsByClassName("card");
-  
-  console.log(cards);
 
   Array.from(cards).forEach(item => item.addEventListener("click", transition))
   function transition() {
@@ -86,7 +84,7 @@ function rotater() {
   } 
 }
 
-renderFilms(movies);
+renderFilms(movies.slice(0, 100));
 rotater();
 
 // search input codes

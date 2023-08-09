@@ -11,7 +11,7 @@ function renderFilms(array) {
   // clearing inner the elList
   elList.innerHTML = "";
   
-  array.forEach(function(item) {
+  movies.forEach(function(item) {
     // making and giving class to maked elements
     const liElement = document.createElement("li");
     liElement.classList.add("item");
@@ -34,12 +34,14 @@ function renderFilms(array) {
     
     const cardInfoElement = document.createElement("div");
     cardInfoElement.classList.add("info");
+    const cardInfoText = item.Categories.split("|").join(", ");
     cardInfoElement.innerHTML = `<h3 class="item-title">${item.Title}</h3>
-    <p class="item-desc">${item.Categories}</p>`
+    <p class="item-desc">${cardInfoText}</p>`
     
     const cardInfoBackElement = document.createElement("div");
     cardInfoBackElement.classList.add("info");
     cardInfoBackElement.innerHTML = `<h3 class="item-title">${item.fulltitle}</h3>
+    <div class="info-inner">
     <div class="reviews">
     <svg fill="#ff0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
     <p>${item.imdb_rating} Grade</p>
@@ -48,7 +50,7 @@ function renderFilms(array) {
     ${item.summary}
     </p>
     <span>Duration ${item.runtime} min</span>
-    <span>Language ${item.language}</span>
+    <span>Language ${item.language}</span></div>
     <a class="link btn" href="https://www.imdb.com/title/${item.imdb_id}/" target="_blank">
     <span class="link-text">Learn more</span>
     <svg fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>

@@ -30,7 +30,7 @@ function renderFilms(array) {
     
     const cardImgElement = document.createElement("div");
     cardImgElement.classList.add("img");
-    // cardImgElement.style.backgroundImage = `url(http://i3.ytimg.com/vi/${item.ytid}/hqdefault.jpg)`;
+    cardImgElement.style.backgroundImage = `url(http://i3.ytimg.com/vi/${item.ytid}/hqdefault.jpg)`;
     
     const cardInfoElement = document.createElement("div");
     cardInfoElement.classList.add("info");
@@ -68,7 +68,24 @@ function renderFilms(array) {
   })
 }
 
+function rotater() {
+  
+  const cards = document.getElementsByClassName("card");
+  
+  console.log(cards);
+
+  Array.from(cards).forEach(item => item.addEventListener("click", transition))
+  function transition() {
+    if (this.classList.contains("active")) {
+      this.classList.remove("active")
+    } else {
+      this.classList.add("active");
+    }
+  } 
+}
+
 renderFilms(movies);
+rotater();
 
 // search input codes
 elSearch.addEventListener("keyup", function() {
@@ -82,6 +99,7 @@ elSearch.addEventListener("keyup", function() {
   })
   
   renderFilms(filter)
+  rotater();
 })
 
 // years input codes
@@ -89,8 +107,6 @@ elForm.addEventListener("submit", function(evt) {
   evt.preventDefault();
   const elYearFromValue = elYearFrom.value;
   const elYearToValue = elYearTo.value;
-
-  console.log(elYearFromValue, elYearToValue);
   
   // finding films between from elYearFromValue to elYearToValue
   if(elYearFromValue == "") {
@@ -99,30 +115,21 @@ elForm.addEventListener("submit", function(evt) {
       return condition;
     })
     renderFilms(filterTo);
+    rotater();
   } else if(elYearToValue == "") {
     let filterFrom = movies.filter(function(item) {
       const condition = elYearFromValue <= item.movie_year;
       return condition;
     })
     renderFilms(filterFrom);
+    rotater();
   } else {
     let filterBetween = movies.filter(function(item) {
       const condition = elYearToValue >= item.movie_year && elYearFromValue <= item.movie_year;
       return condition;
     })
     renderFilms(filterBetween);
+    rotater();
   }
-  
 })
 
-let cards = document.getElementsByClassName("card");
-
-console.log(cards);
-Array.from(cards).forEach(card => card.addEventListener("click", transition))
-function transition() {
-  if (this.classList.contains("active")) {
-    this.classList.remove("active")
-  } else {
-    this.classList.add("active");
-  }
-} 

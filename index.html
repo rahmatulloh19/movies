@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Movies</title>
+</head>
+<body>
+  <main class="site-main">
+    <div class="container">
+      <form class="form">
+        <input class="input-style js-input__search" type="text" placeholder="Search film..." minlength="1" max="50">
+        <input class="input-style js-input__from" type="number" placeholder="From year..." min="1900" max="3000">
+        <input class="input-style js-input__to" type="number" placeholder="To year..." min="1900" max="3000">
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <ul class="list"></ul>
+    </div>
+  </main>
+
+  <script src="./js/movies.js"></script>
+  <script src="./js/styles.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

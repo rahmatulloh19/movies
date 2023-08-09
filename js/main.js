@@ -114,3 +114,15 @@ elForm.addEventListener("submit", function(evt) {
   }
   
 })
+
+let cards = document.getElementsByClassName("card");
+
+console.log(cards);
+Array.from(cards).forEach(card => card.addEventListener("click", transition))
+function transition() {
+  if (this.classList.contains("active")) {
+    this.classList.remove("active")
+  } else {
+    this.classList.add("active");
+  }
+} 

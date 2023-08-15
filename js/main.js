@@ -84,7 +84,7 @@ function rotater() {
   } 
 }
 
-renderFilms(movies.slice(0, 100));
+renderFilms(movies.slice(0, 60));
 rotater();
 
 // search input codes

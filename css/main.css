@@ -254,7 +254,7 @@ body {
 }
 
 .input-style,
-.btn {
+.buttons {
   padding: 8px;
   font-size: 16px;
   font-weight: 500;
@@ -264,12 +264,79 @@ body {
   transition: all 0.3s ease;
 }
 
-.btn {
+
+.buttons {
   background-color: #f0f3bf;
+}
+
+.btn:active {
+  box-shadow: 0 0 25px -4px #fff;
 }
 
 .input-style:focus{
   background-color: #f3e7bf;
+}
+
+.img {
+  position: relative;
+}
+
+.bookmark-btn {
+  position: absolute; 
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: transparent;
+  background-image: url("../images/bookmark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: transparent;
+}
+
+.bookmark-img {
+  background-image: url("../images/bookmarkwhite.svg");
+}
+
+.bookmark-btn:hover {
+  border-color: #ffc324;
+}
+
+.offcanvas-style {
+  width: 85vw !important;
+}
+
+.btn-click {
+  background-image: url("../images/listblack.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button-close {
+  background-image: url("../images/list.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.offcanvas-btn {
+  background-image: url("../images/deletebookmark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.offcanvas-btn-img {
+  background-image: url("../images/deletedbookmark.svg");
+}
+
+@media only screen and (min-width: 500px) {
+  .offcanvas-style {
+    width: 400px !important;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -281,17 +348,14 @@ body {
   .input-style {
     padding: 12px;
   }
-
-  .js-input__search {
-    order: -2;
-  }
-
-  .btn {
-    order: -1;
-  }
   
   .list {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .bookmark-btn {
+    width: 50px;
+    height: 50px;
   }
 }
 

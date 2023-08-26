@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/main.css">
   <title>Movies</title>
@@ -10,17 +11,30 @@
 <body>
   <main class="site-main">
     <div class="container">
-      <form class="form">
+      <form class="form" id="form">
         <input class="input-style js-input__search" type="text" placeholder="Search film..." minlength="1" max="50">
         <input class="input-style js-input__from" type="number" placeholder="From year..." min="1900" max="3000">
         <input class="input-style js-input__to" type="number" placeholder="To year..." min="1900" max="3000">
-        <button class="btn" type="submit">Search</button>
+        <div class="wrapper d-flex column-gap-2">
+          <button class="buttons flex-grow-1" type="submit" form="">Search</button>
+          <button class="buttons btn-primary btn-click w-25" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></button>
+        </div>
       </form>
       <ul class="list"></ul>
+      
+      
+      <div class="offcanvas offcanvas-start offcanvas-style js-offcanvas bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header align-items-stretch text-white">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Marked Movies</h5>
+          <button type="button" class="btn text-reset btn-close-white w-25 button-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <ul class="offcanvas-body list-unstyled list-group list-group-item-info text-white row-gap-3"></ul>
+      </div>
     </div>
   </main>
-
+  
   <script src="./js/movies.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>
